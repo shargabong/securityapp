@@ -1,0 +1,35 @@
+@model securityapp.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<h1>Вход</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password">Пароль</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <input asp-for="RememberMe" type="checkbox" />
+        <label asp-for="RememberMe">Запомнить меня</label>
+    </div>
+    <button type="submit">Войти</button>
+</form>
+
+<div>
+    <a asp-action="Register">Нет аккаунта? Зарегистрироваться</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

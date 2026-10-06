@@ -1,0 +1,36 @@
+@model securityapp.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<h1>Регистрация</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Register" method="post">
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="FullName">Имя</label>
+        <input asp-for="FullName" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password">Пароль</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+<div>
+    <a asp-action="Login">Уже есть аккаунт? Войти</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,16 @@
+@model securityapp.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Новая задача";
+}
+
+<h1>Новая задача</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title">Название</label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <button type="submit">Создать</button>
+</form>

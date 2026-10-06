@@ -1,0 +1,22 @@
+@model List<securityapp.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "Задачи";
+}
+
+<h1>Задачи</h1>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Author"))
+{
+    <a asp-action="Create">Создать задачу</a>
+}
+
+<ul>
+    @foreach (var task in Model)
+    {
+        <li>
+            @task.Title
+            <a asp-action="Edit" asp-route-id="@task.Id">Редактировать</a>
+        </li>
+    }
+</ul>
